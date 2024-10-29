@@ -1,78 +1,41 @@
-## Solution to the Qoala Assignment
+# Qoala Assignment Report
+
+## Issues Identified
+During the image building and container setup for the Nginx and Python applications, the following errors were encountered:
+- Nginx configuration errors due to typos and incorrect directives.
+- Dockerfile errors including obsolete attributes and incorrect command syntax.
+- Issues with port definitions and missing files that prevented the applications from running correctly.
+
+## Resolution Steps
+To resolve the identified issues, the following actions were taken:
 
 ### Nginx Dockerfile Changes (`nginx/Dockerfile`)
-- **Base Image**: 
-  - **Updated**: `FROM nginx:latests` 
-  - **To**: `FROM nginx:latest`
-  
-- **Configuration File**: 
-  - **Updated**: `COPY nginix.conf /etc/nginx/nginx.conf`
-  - **To**: `COPY nginx.conf /etc/nginx/nginx.conf`
-  
-- **Port Exposure**: 
-  - **Updated**: `EXPOSE "eighty"`
-  - **To**: `EXPOSE 80`
-
-- **HTML Directory Copy**: 
-  - **Removed**: `COPY ./html /usr/share/nginx/html`
-  - **Updated**: Changed the destination from `htmll` to `html`.
-
-- **Run Command**: 
-  - **Updated**: `CMD ["nginx", "-g", "daemon of;"]`
-  - **To**: `CMD ["nginx", "-g", "daemon off;"]`
+1. **Base Image**: Changed from `FROM nginx:latests` to `FROM nginx:latest`.
+2. **Configuration File**: Corrected the COPY command from `COPY nginix.conf /etc/nginx/nginx.conf` to `COPY nginx.conf /etc/nginx/nginx.conf`.
+3. **Port Exposure**: Fixed port definition from `EXPOSE "eighty"` to `EXPOSE 80`.
+4. **HTML Directory Copy**: Removed erroneous copy command and ensured the destination was correctly specified.
+5. **Run Command**: Updated the command from `CMD ["nginx", "-g", "daemon of;"]` to `CMD ["nginx", "-g", "daemon off;"]`.
 
 ### Nginx Configuration File Changes (`nginx/nginx.conf`)
-- **Worker Processes**: 
-  - **Updated**: `worker_process` 
-  - **To**: `worker_processes`
-
-- **Worker Connections**: 
-  - **Updated**: `worker_connection`
-  - **To**: `worker_connections`
-
-- **MIME Types**: 
-  - **Updated**: `include /etc/nginx/mime.typess`
-  - **To**: `include /etc/nginx/mime.types`
-
-- **Default Type**: 
-  - **Updated**: `default_typ`
-  - **To**: `default_type`
+1. Corrected `worker_process` to `worker_processes`.
+2. Fixed `worker_connection` to `worker_connections`.
+3. Changed `include /etc/nginx/mime.typess` to `include /etc/nginx/mime.types`.
+4. Updated `default_typ` to `default_type`.
 
 ### Python Application Changes (`Python/app.py`)
-- **Import Statement**: 
-  - **Removed**: Unused import `import socket`.
+- Removed unused import `import socket`.
 
 ### Python Dockerfile Changes (`Python/Dockerfile`)
-- **Base Image**: 
-  - **Updated**: `FROM python:3.9`
-  
-- **Working Directory**: 
-  - **Updated**: `WORKDIR /appp`
-  - **To**: `WORKDIR /app` # fixed typo
-
-- **Copy Application File**: 
-  - **Updated**: `COPY appy.py /app`
-  - **To**: `COPY app.py /app` # fixed filename
-
-- **Package Installation**: 
-  - **Updated**: `RUN pip install flask netiface`
-  - **To**: `RUN pip install flask netifaces` # fixed package name
-
-- **Port Exposure**: 
-  - **Updated**: `EXPOSE "eight thousand"`
-  - **To**: `EXPOSE 8000` # fixed port definition
-
-- **Run Command**: 
-  - **Updated**: `CMD ["pythn", "app.py"]`
-  - **To**: `CMD ["python", "app.py"]` # fixed command
+1. Updated the base image to `FROM python:3.9`.
+2. Corrected working directory from `WORKDIR /appp` to `WORKDIR /app`.
+3. Fixed the application file copy from `COPY appy.py /app` to `COPY app.py /app`.
+4. Corrected package installation command from `RUN pip install flask netiface` to `RUN pip install flask netifaces`.
+5. Fixed port exposure from `EXPOSE "eight thousand"` to `EXPOSE 8000`.
+6. Updated the run command from `CMD ["pythn", "app.py"]` to `CMD ["python", "app.py"]`.
 
 ### Summary
-These updates improve the functionality and accuracy of the Docker configurations and application logic.
-
-### Individual File Comments
-All changes in the individual files are thoroughly commented for clarity. 
+These updates have improved the functionality and accuracy of the Docker configurations and application logic. All changes in the individual files have been thoroughly commented for clarity.
 
 ## Final Output
-
 ![Application Running](./RunningAppn.png)
 ![Logs](./logs.png)
