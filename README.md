@@ -59,3 +59,8 @@ These changes improve the overall functionality and correctness of the Docker co
 
 ### Individual File Comments
 All changes in the individual files are commented for clarity. 
+
+## Final Output
+
+![Application running](./RunningAppn.png)
+![Logs](./logs.png)
