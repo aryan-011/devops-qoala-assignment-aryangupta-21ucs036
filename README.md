@@ -5,7 +5,7 @@
 ![Logs](./logs.png)
 
 ### AWS Instance Link(only http request supported)
-[Access the AWS Instance Here](http://ec2-13-61-3-53.eu-north-1.compute.amazonaws.com/)  
+<a href="http://ec2-13-61-3-53.eu-north-1.compute.amazonaws.com/" target="_blank">Access the AWS Instance Here</a> 
 
 
 ## Issues Identified
