@@ -1,5 +1,13 @@
 # Qoala Assignment Report
 
+## Final Output
+![Application Running](./RunningAppn.png)
+![Logs](./logs.png)
+
+### AWS Instance Link(only http request supported)
+[Access the AWS Instance Here](http://ec2-13-61-3-53.eu-north-1.compute.amazonaws.com/)  
+
+
 ## Issues Identified
 During the image building and container setup for the Nginx and Python applications, the following errors were encountered:
 - Nginx configuration errors due to typos and incorrect directives.
@@ -35,7 +43,3 @@ To resolve the identified issues, the following actions were taken:
 
 ### Summary
 These updates have improved the functionality and accuracy of the Docker configurations and application logic. All changes in the individual files have been thoroughly commented for clarity.
-
-## Final Output
-![Application Running](./RunningAppn.png)
-![Logs](./logs.png)
